@@ -26,6 +26,8 @@ for i in f:
 
 
 '''
+# When Using Bash:>> cat /usr/share/wordlists/rockyou.txt | while read pass; do openssl enc -d -a -AES-256-CBC -in .drupal.txt.enc -k $pass > devnull 2>&1; if [[ $? -eq 0 ]]; then echo "Password: $pass"; exit; fi; done;
+
 import re
 import os
 
