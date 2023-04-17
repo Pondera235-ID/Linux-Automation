@@ -1,0 +1,23 @@
+import subprocess
+
+f = open("/usr/share/seclists/Discovery/Web-Content/common.txt", "r")
+for i in f:
+	try:
+		# Kode perulangan yang mungkin menghasilkan error
+		# ...
+		pw = i.strip()
+		#print(pw)
+    #Data= {"aa":"bb"}
+		cmd= '''wscat --connect ws://qreader.htb:5789/version -w 1 -x '{"'''+pw+'''":"abc"}' '''
+		#print(cmd)
+		output = subprocess.getoutput(cmd)
+		#print('==============================================')
+		if len(output) > 0:
+			print(i)
+			print(output)
+		# Jika tidak terdapat error, keluar dari perulangan
+		#break
+	except len(output)>0:
+		# Jika terdapat error, lanjutkan perulangan ke iterasi selanjutnya
+		break
+		#continue
